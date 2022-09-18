@@ -8,4 +8,15 @@ public class RegularProcessing {
         Matcher matcher = pattern.matcher(input);
         return matcher.matches();
     }
+
+
+    public boolean isGuid(String input) {
+        String filter = "([0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12})|" +
+                        "(\\(([0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12})\\))|" +
+                        "(\\{([0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12})}|" +
+                        "(\\[[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12})])";
+        Pattern pattern = Pattern.compile(filter);
+        Matcher matcher = pattern.matcher(input);
+        return matcher.matches();
+    }
 }
