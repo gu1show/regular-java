@@ -79,4 +79,16 @@ public class RegularProcessingTest {
         RegularProcessing executor = new RegularProcessing();
         Assert.assertFalse(executor.isIpAddress("18.01.98.100"));
     }
+
+    @Test
+    public void testIsIpAddressIncorrect8(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertFalse(executor.isIpAddress("l8.1.98.100"));
+    }
+
+    @Test
+    public void testIsIpAddressIncorrect9(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertFalse(executor.isIpAddress("-1.1.9.1"));
+    }
 }
