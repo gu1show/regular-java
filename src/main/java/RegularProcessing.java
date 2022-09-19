@@ -19,4 +19,13 @@ public class RegularProcessing {
         Matcher matcher = pattern.matcher(input);
         return matcher.matches();
     }
+
+    public boolean isValidUrl(String url){
+        //[(http(s)?)://(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}
+        String filter = "((http(s)?://)?(www\\.)?)?[a-zA-Z0-9@:%._+~#=/][a-zA-Z0-9@:%._+~#=/]{2,256}" +
+                        "\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_+.~#?&/=]*)";
+        Pattern pattern = Pattern.compile(filter);
+        Matcher matcher = pattern.matcher(url);
+        return matcher.matches();
+    }
 }

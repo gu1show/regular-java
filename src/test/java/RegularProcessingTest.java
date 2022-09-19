@@ -169,4 +169,82 @@ public class RegularProcessingTest {
         RegularProcessing executor = new RegularProcessing();
         Assert.assertFalse(executor.isGuid("FFFFFFF--FFFF-FFFF-FFFF-FFFFFFFFFFFF"));
     }
+
+    @Test
+    public void testUrlWithSubfolder(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertTrue(executor.isValidUrl("https://tproger.ru/articles/java-regex-ispolzovanie-reguljarnyh-vyrazhenij-na-praktike/"));
+    }
+
+    @Test
+    public void testUrlWithSubdomain(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertTrue(executor.isValidUrl("https://blog.example.ru/"));
+    }
+
+    @Test
+    public void testUrlWithOnlyWww(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertTrue(executor.isValidUrl("www.google.com"));
+    }
+
+    @Test
+    public void testUrlWithOnlyHttp(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertTrue(executor.isValidUrl("http://google.com"));
+    }
+
+    @Test
+    public void testUrlWithOnlyHttpS(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertTrue(executor.isValidUrl("https://google.com"));
+    }
+
+    @Test
+    public void testUrlWithoutHttpSAndWww(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertTrue(executor.isValidUrl("google.com"));
+    }
+
+    @Test
+    public void testGetRequest(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertTrue(executor.isValidUrl("/test/demo_form.php?name1=value1&name2=value2"));
+    }
+
+    @Test
+    public void testUrlLikeIp(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertFalse(executor.isValidUrl("192.168.1.1"));
+    }
+
+    @Test
+    public void testUrlWithDomainLess2(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertFalse(executor.isValidUrl("a.b"));
+    }
+
+    @Test
+    public void testUrlWithExtraSlashAfterHttps(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertFalse(executor.isValidUrl("https:///ab.b"));
+    }
+
+    @Test
+    public void testUrlWithDashBeforeDomain(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertFalse(executor.isValidUrl("www.-a.b"));
+    }
+
+    @Test
+    public void testUrlWithDashAfterDomain(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertFalse(executor.isValidUrl("www.a-.b"));
+    }
+
+    @Test
+    public void testWrongUrl(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertFalse(executor.isValidUrl("www.-"));
+    }
 }
