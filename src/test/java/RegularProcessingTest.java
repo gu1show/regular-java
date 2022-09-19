@@ -209,7 +209,7 @@ public class RegularProcessingTest {
     @Test
     public void testGetRequest(){
         RegularProcessing executor = new RegularProcessing();
-        Assert.assertTrue(executor.isValidUrl("/test/demo_form.php?name1=value1&name2=value2"));
+        Assert.assertTrue(executor.isValidUrl("word-dictionary.com/test/demo_form.php?name1=value1&name2=value2"));
     }
 
     @Test

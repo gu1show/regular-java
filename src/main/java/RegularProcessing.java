@@ -9,7 +9,6 @@ public class RegularProcessing {
         return matcher.matches();
     }
 
-
     public boolean isGuid(String guid) {
         String filter = "([0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12})|" +
                         "(\\(([0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12})\\))|" +
@@ -21,8 +20,8 @@ public class RegularProcessing {
     }
 
     public boolean isValidUrl(String url){
-        String filter = "((http(s)?://)?(www\\.)?)?[a-zA-Z0-9@:%._+~#=/][a-zA-Z0-9@:%._+~#=/]{2,256}" +
-                        "\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_+.~#?&/=]*)";
+        String filter = "((http(s)?://)?(www\\.)?)?[a-zA-Z0-9@:%._+~#=/][a-zA-Z0-9@:%._+~#=/-]{2,255}" +
+                        "[a-zA-Z0-9@:%._+~#=/]\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_+.~#?&/=]*)";
         Pattern pattern = Pattern.compile(filter);
         Matcher matcher = pattern.matcher(url);
         return matcher.matches();
