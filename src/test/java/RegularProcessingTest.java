@@ -247,4 +247,76 @@ public class RegularProcessingTest {
         RegularProcessing executor = new RegularProcessing();
         Assert.assertFalse(executor.isValidUrl("www.-"));
     }
+
+    @Test
+    public void testCorrectPassword1(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertTrue(executor.isCorrectPassword("bsFdk8l0"));
+    }
+
+    @Test
+    public void testCorrectPassword2(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertTrue(executor.isCorrectPassword("abcB12aaaaa"));
+    }
+
+    @Test
+    public void testCorrectPassword3(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertTrue(executor.isCorrectPassword("As_lva00wqd"));
+    }
+
+    @Test
+    public void testCorrectPassword4(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertTrue(executor.isCorrectPassword("lvkaIM0_"));
+    }
+
+    @Test
+    public void testCorrectPassword5(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertTrue(executor.isCorrectPassword("_imzpx9_fKwe"));
+    }
+
+    @Test
+    public void testCorrectPassword6(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertTrue(executor.isCorrectPassword("kWel62_fwce"));
+    }
+
+    @Test
+    public void testPasswordWithoutCapital(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertFalse(executor.isCorrectPassword("bsfdk8l0"));
+    }
+
+    @Test
+    public void testPasswordWithoutLowercase(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertFalse(executor.isCorrectPassword("BSFDK8L0"));
+    }
+
+    @Test
+    public void testPasswordWithoutNumbers(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertFalse(executor.isCorrectPassword("vajkJvkd_"));
+    }
+
+    @Test
+    public void testPasswordWithSpace(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertFalse(executor.isCorrectPassword("vajkJ 9vkd_"));
+    }
+
+    @Test
+    public void testPasswordWithExclamationMark(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertFalse(executor.isCorrectPassword("vajkJ9vkd_!"));
+    }
+
+    @Test
+    public void testPasswordWithAt(){
+        RegularProcessing executor = new RegularProcessing();
+        Assert.assertFalse(executor.isCorrectPassword("vajkJ9vkd_@"));
+    }
 }
